@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import io.comunik.models.ErrorMessage;
+import io.comunik.service.ComunicacaoNotFoundException;
 
 @ControllerAdvice
 public class ExceptionHandlingController {
@@ -17,5 +18,12 @@ public class ExceptionHandlingController {
                 HttpStatus.INTERNAL_SERVER_ERROR
         );
 	}
-
+	
+	@ExceptionHandler(ComunicacaoNotFoundException.class)
+	public ResponseEntity<ErrorMessage> handleError(ComunicacaoNotFoundException ex) {
+		return new ResponseEntity<ErrorMessage>(
+                ErrorMessage.builder().message(ex.getMessage()).build(),
+                HttpStatus.NOT_FOUND
+        );
+	}
 }

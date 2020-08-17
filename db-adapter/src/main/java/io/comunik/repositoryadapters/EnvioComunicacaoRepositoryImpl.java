@@ -1,5 +1,8 @@
 package io.comunik.repositoryadapters;
 
+import java.util.Optional;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -25,4 +28,14 @@ public class EnvioComunicacaoRepositoryImpl implements EnvioComunicaoRepository 
 		return envioComunicacaoEntity.getId().toString();
 	}
 
+	@Override
+	public Optional<EnvioComunicacao> findById(String id) {
+		Optional<EnvioComunicacaoEntity> comunicacao = jpa.findById(UUID.fromString(id));
+		return comunicacao.map(EnvioComunicacaoRepositoryMapper::toDomainEntity);
+	}
+
+	@Override
+	public void deleteById(String id) {
+		jpa.deleteById(UUID.fromString(id));
+	}
 }

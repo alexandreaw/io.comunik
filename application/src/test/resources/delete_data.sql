@@ -1,0 +1,1 @@
+INSERT INTO envio_comunicacao (id,data_hora_envio,destinatario,mensagem,tipo_comunicacao,status_envio) VALUES ('6ce64a51-1080-490e-96e1-3e779b9b2d0f','2016-01-25 21:34:55.000','alexandreaw@gmail.com','Mensagem exemplo',1,0)

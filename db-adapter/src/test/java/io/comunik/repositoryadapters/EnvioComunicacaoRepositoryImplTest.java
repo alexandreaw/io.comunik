@@ -6,6 +6,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
@@ -46,6 +47,34 @@ class EnvioComunicacaoRepositoryImplTest {
 		envioComunicacaoRepositoryImpl.add(comunicacao);
 		
 		verify(jpa).save(any());
+	}
+	
+	@Test
+	void deveBuscarById() {
+		var comunicacaoEntity = EnvioComunicacaoEntity.builder()
+				.dataHoraEnvio(LocalDateTime.now().plusHours(1))
+				.destinatario("alexandreaw@gmail.com")
+				.mensagem("Mensagem")
+				.tipoComunicacao(TipoComunicacao.EMAIL)
+				.build();
+		
+		var id = UUID.randomUUID();
+
+		when(jpa.findById(id))
+			.thenReturn(Optional.of(comunicacaoEntity));
+		
+		envioComunicacaoRepositoryImpl.findById(id.toString());
+		
+		verify(jpa).findById(id);
+	}
+	
+	@Test
+	void deveRemoverById() {
+		var id = UUID.randomUUID();
+
+		envioComunicacaoRepositoryImpl.deleteById(id.toString());
+		
+		verify(jpa).deleteById(id);
 	}
 
 }
