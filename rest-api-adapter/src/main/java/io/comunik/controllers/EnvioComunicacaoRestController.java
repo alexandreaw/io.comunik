@@ -38,8 +38,8 @@ public class EnvioComunicacaoRestController {
 	}
 
 	@RequestMapping(value = "/enviocomunicacao/status/{comunicacaoid}", method = RequestMethod.GET)
-    public ResponseEntity<StatusComunicacao> getStatusComunicacao(@PathVariable String comunicacaoid) {
-        Optional<EnvioComunicacao> possibleEnvioComunicacao = getStatusAgendamentoPort.getAgendamento(comunicacaoid);
+    public ResponseEntity<StatusComunicacao> getStatusComunicacao(@PathVariable String id) {
+        Optional<EnvioComunicacao> possibleEnvioComunicacao = getStatusAgendamentoPort.getAgendamento(id);
     	
         EnvioComunicacao comunicacao = possibleEnvioComunicacao.get();
     	return new ResponseEntity<StatusComunicacao>(new StatusComunicacao(comunicacao.getId(), comunicacao.getStatus()), HttpStatus.OK);
@@ -53,7 +53,10 @@ public class EnvioComunicacaoRestController {
     }
 	
 	@RequestMapping(value = "/enviocomunicacao", method = RequestMethod.POST)
-    public ResponseEntity<ComunicacaoId> agendarComunicacao(@Valid @RequestBody EnvioComunicacao envioComunicacao) {
+    public ResponseEntity<ComunicacaoId> agendarComunicacao(
+    		@Valid 
+    		@RequestBody 
+    		EnvioComunicacao envioComunicacao) {
         String idConsultaAgendamento = agendarSolicitacaoEnvioComunicacaoPort.agendar(envioComunicacao);
         if (idConsultaAgendamento != null) {
             return new ResponseEntity<ComunicacaoId>(new ComunicacaoId(idConsultaAgendamento), HttpStatus.CREATED);

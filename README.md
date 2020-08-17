@@ -39,7 +39,9 @@ Os seguintes endpoints estão disponíveis na Api
 	}
 
 ### Consulta status agendamento envio
+
 **GET**: /enviocomunicacao/status/{id}
+
 *return* ( Retorna informações do status envio )
 
 	{  
@@ -48,6 +50,7 @@ Os seguintes endpoints estão disponíveis na Api
 	}
 ### Apagar solicitação de agendamento
 **DELETE**: /enviocomunicacao/{id}
+
 *return* No content
 
 ## Build, deploy e run com Docker
