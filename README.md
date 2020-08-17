@@ -53,6 +53,12 @@ Os seguintes endpoints estão disponíveis na Api
 
 *return* No content
 
+## Executando os testes
+
+Para executar os testes basta rodar o comando
+
+	./mvnw clean verify
+
 ## Build, deploy e run com Docker
 
 Para continuar você precisa:
