@@ -2,11 +2,9 @@ package io.comunik.service;
 
 import java.time.LocalDateTime;
 
-import lombok.NonNull;
-
 public class DataHoraInvalidException extends RuntimeException {
 
-	public DataHoraInvalidException(@NonNull LocalDateTime dataHoraEnvio) {
+	public DataHoraInvalidException(LocalDateTime dataHoraEnvio) {
 		super("DataHora "+ dataHoraEnvio +" invalida ou menor que datahora atual");
 	}
 

@@ -1,10 +1,10 @@
 package io.comunik.models;
 
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 
 @Builder
-@Data
+@Getter
 public class ErrorMessage {
 
     private String message;
