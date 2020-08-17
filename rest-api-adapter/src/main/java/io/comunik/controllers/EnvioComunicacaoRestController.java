@@ -37,7 +37,7 @@ public class EnvioComunicacaoRestController {
 		this.removerAgendamentoComunicaoPort = removerAgendamentoComunicaoPort;
 	}
 
-	@RequestMapping(value = "/enviocomunicacao/status/{comunicacaoid}", method = RequestMethod.GET)
+	@RequestMapping(value = "/enviocomunicacao/status/{id}", method = RequestMethod.GET)
     public ResponseEntity<StatusComunicacao> getStatusComunicacao(@PathVariable String id) {
         Optional<EnvioComunicacao> possibleEnvioComunicacao = getStatusAgendamentoPort.getAgendamento(id);
     	
