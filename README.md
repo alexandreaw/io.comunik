@@ -33,7 +33,7 @@ Passo 1: empacotar projeto
 	
 Passo 2: Criar imagem Docker do projeto
 
-	docker build -t magalu/comunik .
+	docker build -t comunik/comunik .
 	
 Passo 3: Rodar
 

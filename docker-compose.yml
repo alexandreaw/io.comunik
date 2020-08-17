@@ -18,7 +18,7 @@ services:
 # APP*****************************************
 
   comunik:
-    image: magalu/comunik:latest
+    image: comunik/comunik:latest
     container_name: comunik
     expose:
       - 8080
