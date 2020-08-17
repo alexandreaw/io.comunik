@@ -1,0 +1,29 @@
+databaseChangeLog:
+- changeSet:
+    id: 1466006862728-4
+    author: alexandre.aleixo
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              primaryKey: true
+              primaryKeyName: envio_comunicacao_pkey
+            name: id
+            type: uuid
+        - column:
+            name: data_hora_envio
+            type: datetime
+        - column:
+            name: destinatario
+            type: VARCHAR(255)
+        - column:
+            name: mensagem
+            type: VARCHAR(500)
+        - column:
+            name: tipo_comunicacao
+            type: numeric
+        - column:
+            name: status_envio
+            type: numeric
+        tableName: envio_comunicacao
